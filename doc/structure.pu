@@ -1,0 +1,59 @@
+@startuml
+
+class VSSNode {
+    + str name
+    + VSSNode[] children
+    + VSSData data
+}
+
+enum NodeType {
+    + BRANCH
+    + ATTRIBUTE
+    + SENSOR
+    + ACTUATOR
+    + STRUCT
+    + PROPERTY
+}
+
+abstract class VSSData {
+    + NodeType type 
+    + str description
+    + str comment
+    + bool delete
+}
+
+class VSSDataStruct {
+}
+
+abstract class VSSDataDatatype {
+    + str datatype
+    + int arraysize
+    + Number min
+    + Number max
+    + str pattern
+    + str unit
+    + List[str|int|float|bool] allowed
+    + Any default
+}
+
+class VSSDataProperty {
+}
+class VSSDataSensor {
+}
+class VSSDataActuator {
+}
+class VSSDataAttribute {
+}
+
+VSSNode -> VSSNode 
+VSSNode -> VSSData
+VSSData -> NodeType 
+VSSDataBranch --|> VSSData
+VSSDataStruct --|> VSSData
+VSSDataDatatype --|> VSSData
+VSSDataProperty --|> VSSDataDatatype 
+VSSDataSensor --|> VSSDataDatatype 
+VSSDataActuator --|> VSSDataDatatype 
+VSSDataAttribute --|> VSSDataDatatype 
+
+@enduml
