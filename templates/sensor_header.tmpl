@@ -1,0 +1,17 @@
+#ifndef
+#define {{ name }}
+
+#include <future>
+
+namespace {{ name }} {{ '{' }}
+  class Sensor {{ '{' }}
+    {{ type }} get();
+    std::future<bool> set({{ type }} value);
+    int subscribe();
+    void unsubscribe(int subscribe_token);
+    int try_lock();
+    int unlock(int lock_token);
+  {{ '}' }}
+{{ '}' }}
+
+#endif 

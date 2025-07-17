@@ -44,6 +44,8 @@ class VSSDataActuator {
 }
 class VSSDataAttribute {
 }
+class VSSDataProperty {
+}
 
 VSSNode -> VSSNode 
 VSSNode -> VSSData
@@ -55,5 +57,6 @@ VSSDataProperty --|> VSSDataDatatype
 VSSDataSensor --|> VSSDataDatatype 
 VSSDataActuator --|> VSSDataDatatype 
 VSSDataAttribute --|> VSSDataDatatype 
+VSSDataProperty  --|> VSSDataDatatype 
 
 @enduml
